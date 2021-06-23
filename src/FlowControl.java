@@ -17,6 +17,12 @@ public class FlowControl {
         System.out.println("Enter a user name: ");
         String userInput = sc.next();
 
+        if (userInput.equals(user1) || userInput.equals(user2) || userInput.equals(user3)) {
+            System.out.printf("Sorry, username '%s' already exists", userInput);
+        } else {
+            System.out.println("That user name is available.");
+        }
+
         switch (userInput) {
             case "Bobber":
                 System.out.print(noti);
@@ -30,6 +36,8 @@ public class FlowControl {
             default:
                 System.out.println("That username is available.. would you like to select it?");
         }
+
+
 
     }
 }

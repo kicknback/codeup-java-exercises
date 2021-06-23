@@ -10,34 +10,40 @@ public class FlowControl {
         //  username already exists.
         Scanner sc = new Scanner(System.in);
 
-        String user1 = "Bobber";
-        String user2 = "Jimmer";
-        String user3 = "Timma";
-        String noti = "Sorry, this username already exists.";
-        System.out.println("Enter a user name: ");
-        String userInput = sc.next();
+//        String user1 = "Bobber";
+//        String user2 = "Jimmer";
+//        String user3 = "Timma";
+//        String noti = "Sorry, this username already exists.";
+//        System.out.println("Enter a user name: ");
+//        String userInput = sc.next();
 
-        if (userInput.equals(user1) || userInput.equals(user2) || userInput.equals(user3)) {
-            System.out.printf("Sorry, username '%s' already exists", userInput);
-        } else {
-            System.out.println("That user name is available.");
-        }
+//        if (userInput.equals(user1) || userInput.equals(user2) || userInput.equals(user3)) {
+//            System.out.printf("Sorry, username '%s' already exists", userInput);
+//        } else {
+//            System.out.println("That user name is available.");
+//        }
 
-        switch (userInput) {
-            case "Bobber":
-                System.out.print(noti);
-                break;
-            case "Jimmer":
-                System.out.print(noti);
-                break;
-            case "Timma":
-                System.out.print(noti);
-                break;
-            default:
-                System.out.println("That username is available.. would you like to select it?");
-        }
+//        switch (userInput) {
+//            case "Bobber":
+//                System.out.print(noti);
+//                break;
+//            case "Jimmer":
+//                System.out.print(noti);
+//                break;
+//            case "Timma":
+//                System.out.print(noti);
+//                break;
+//            default:
+//                System.out.println("That username is available.. would you like to select it?");
+//        }
 
+        // TODO: using previous mini exercise, allow the user to input a new username several times until a unique username is entered.
 
+//        while(!userInput.equals("Billy")) {
+//            System.out.println("That is the wrong username.  Please enter it correctly.");
+//            System.out.println("Enter a user name: ");
+//            String userInput = sc.next();
+//        }
 
     }
 }

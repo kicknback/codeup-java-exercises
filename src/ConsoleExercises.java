@@ -38,10 +38,10 @@ public class ConsoleExercises {
 
         double length = Double.parseDouble(sc.next());
         double width = Double.parseDouble(sc.next());
-        double heigth = Double.parseDouble((sc.next()));
+        double height = Double.parseDouble((sc.next()));
         double area = length * width;
         double perimeter = (length * 2) + (width * 2);
-        double volume = length * width * heigth;
+        double volume = length * width * height;
 
         System.out.printf("The area of your input is %.3f, while the perimeter is %.3f.\nAlso, the volume is %.3f", area, perimeter, volume);
 

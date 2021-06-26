@@ -77,8 +77,7 @@ public class ControlFlowExercises {
         boolean continueProgram = true;
 
         while (continueProgram) {
-            boolean innerLoop = true;
-            while (innerLoop) {
+            while (true) {
                 byte userGrade = 0;
                 System.out.println("What is your numerical grade? ");
                 if (sc.hasNextByte()) {

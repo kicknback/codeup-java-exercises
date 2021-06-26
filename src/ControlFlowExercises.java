@@ -25,8 +25,8 @@ public class ControlFlowExercises {
 //        } while (num >= -10);
 
 
-//        This is somehow giving me an infinite loop
-//        int i = 2;
+//        Had to change to long to reflect higher calculation surpassing integer max value
+//        long i = 2;
 //
 //        do {
 //            System.out.println(i);
@@ -47,8 +47,7 @@ public class ControlFlowExercises {
 //            System.out.println(num);
 //        }
 
-        //This is also giving me an infinite loop
-//        for (int i = 2; i < 1000000; i*=i) {
+//        for (long i = 2; i < 1000000; i*=i) {
 //            System.out.println(i);
 //        }
 
@@ -78,42 +77,46 @@ public class ControlFlowExercises {
         boolean continueProgram = true;
 
         while (continueProgram) {
+            byte userGrade = 0;
             System.out.println("What is your numerical grade? ");
-            byte userGrade = Byte.parseByte(sc.next());
-            if (userGrade < 0 || userGrade > 100) {
-                System.out.println("That is not a valid grade number");
-            } else if (userGrade < 59) {
-                System.out.println("Letter grade earned: F");
-            } else if (userGrade == 60) {
-                System.out.println("Letter grade earned: D-");
-            } else if (userGrade > 60 && userGrade < 66) {
-                System.out.println("Letter grade earned: D");
-            } else if (userGrade == 66) {
-                System.out.println("Letter grade earned: D+");
-            } else if (userGrade == 67) {
-                System.out.println("Letter grade earned: C-");
-            } else if (userGrade > 67 && userGrade < 79) {
-                System.out.println("Letter grade earned: C");
-            } else if (userGrade == 79) {
-                System.out.println("Letter grade earned: C+");
-            } else if (userGrade == 80) {
-                System.out.println("Letter grade earned: B-");
-            } else if (userGrade > 80 && userGrade < 87) {
-                System.out.println("Letter grade earned: B");
-            } else if (userGrade == 87) {
-                System.out.println("Letter grade earned: B+");
-            } else if (userGrade == 88) {
-                System.out.println("Letter grade earned: A-");
-            } else if (userGrade > 88 && userGrade < 99) {
-                System.out.println("Letter grade earned: A");
-            } else if (userGrade >= 99) {
-                System.out.println("Letter grade earned: A+");
+            if (sc.hasNextByte()) {
+                userGrade = sc.nextByte();
+                if (userGrade < 0 || userGrade > 100) {
+                    System.out.println("That is not a valid grade number");
+                } else if (userGrade < 59) {
+                    System.out.println("Letter grade earned: F");
+                } else if (userGrade == 60) {
+                    System.out.println("Letter grade earned: D-");
+                } else if (userGrade > 60 && userGrade < 66) {
+                    System.out.println("Letter grade earned: D");
+                } else if (userGrade == 66) {
+                    System.out.println("Letter grade earned: D+");
+                } else if (userGrade == 67) {
+                    System.out.println("Letter grade earned: C-");
+                } else if (userGrade > 67 && userGrade < 79) {
+                    System.out.println("Letter grade earned: C");
+                } else if (userGrade == 79) {
+                    System.out.println("Letter grade earned: C+");
+                } else if (userGrade == 80) {
+                    System.out.println("Letter grade earned: B-");
+                } else if (userGrade > 80 && userGrade < 87) {
+                    System.out.println("Letter grade earned: B");
+                } else if (userGrade == 87) {
+                    System.out.println("Letter grade earned: B+");
+                } else if (userGrade == 88) {
+                    System.out.println("Letter grade earned: A-");
+                } else if (userGrade > 88 && userGrade < 99) {
+                    System.out.println("Letter grade earned: A");
+                } else if (userGrade >= 99) {
+                    System.out.println("Letter grade earned: A+");
+                }
             }
+
 
 
             boolean exitProgram = false;
             while (!exitProgram) {
-                System.out.println("Would you like to continue inputting numerical grades?(y/n) ");
+                System.out.println("Please enter a numerical grade.\nWould you like to continue inputting numerical grades?(y/n) ");
                 String userInput = sc.next();
                 if (userInput.equalsIgnoreCase("y")) {
                     break;
@@ -124,6 +127,7 @@ public class ControlFlowExercises {
                 }
             }
             if (exitProgram) {
+                System.out.println("Exiting program...");
                 continueProgram = false;
             }
         }

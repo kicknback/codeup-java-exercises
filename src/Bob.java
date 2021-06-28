@@ -7,7 +7,7 @@ public class Bob {
         System.out.println("Say something to Bob: ");
         String sayToBob = sc.nextLine();
 
-        if (sayToBob == null) {
+        if (sayToBob.isEmpty()) {
             System.out.println("Fine. Be that way!");
         } else if (sayToBob.lastIndexOf("?") != -1) {
             System.out.println("Sure");
@@ -16,6 +16,7 @@ public class Bob {
         } else {
             System.out.println("Whatever");
         }
+
 
 
     }

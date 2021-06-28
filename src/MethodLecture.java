@@ -10,10 +10,20 @@ public class MethodLecture {
         //     team). print out the result of the new method.
 
         System.out.println(bTeam("Spurs"));
-        System.out.println(charNum(bTeam("Spurs")));
+
 
         //    TODO: create a new method that accepts the string created from the
         //     first method and returns the number of characters in that string.
+
+        System.out.println(charNum(bTeam("Spurs")));
+
+        //    TODO: invoke a method that accepts (and returns) the following:
+        //        - accepts: your first name and your last name. returns: A
+        //        string that reads: "Hello Laura Ruiz-Roehrs (replace with your
+        //        first and last)";
+
+        System.out.println(greeting("Josh", "Borreli"));
+
     }
 
     public static String bTeam(String team) {
@@ -22,6 +32,10 @@ public class MethodLecture {
 
     public static int charNum(String input) {
         return input.length();
+    }
+
+    public static String greeting(String fName, String lName) {
+        return String.format("Hello, %s %s.", fName, lName);
     }
 
 }

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class MethodLecture {
 
 
@@ -24,6 +26,18 @@ public class MethodLecture {
 
         System.out.println(greeting("Josh", "Borreli"));
 
+        //    WARMUP
+        //    TODO: prompt a user to tell us about themselves (age, name, if
+        //     they have any pets (true/false). Using method overloading, create
+        //     methods that will return the first fact they told us about
+        //     themselves. ex: I can input: 18 -- Laura -- false in which case I
+        //     expect you to return: 18. but if I tell you my name first: Laura --
+        //     false -- 18. I expect you to return "Laura" ... etc.
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Tell us about yourself: ");
+        System.out.println(info(sc.next()));
+
+
     }
 
     public static String bTeam(String team) {
@@ -36,6 +50,17 @@ public class MethodLecture {
 
     public static String greeting(String fName, String lName) {
         return String.format("Hello, %s %s.", fName, lName);
+    }
+
+    // ------------------
+    public static String info(String name) {
+        return String.format("Your name is %s", name);
+    }
+    public static int info(int age) {
+        return age;
+    }
+    public static boolean info(boolean anyPets) {
+        return anyPets;
     }
 
 }

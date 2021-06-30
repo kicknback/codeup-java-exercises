@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class MethodsExercises {
     public static void main(String[] args) {
@@ -16,10 +17,10 @@ public class MethodsExercises {
 //        getInteger(5, 30, sc);
 
 
-        calcFactorial();
+//        calcFactorial();
 
 
-
+            rollDice();
 
 
 
@@ -86,26 +87,31 @@ public class MethodsExercises {
     public static void calcFactorial() {
         Scanner sc = new Scanner(System.in);
         boolean keepGoing = true;
+        boolean exitProgram = false;
+
 
         while (keepGoing) {
-            System.out.println("Enter a number from 1 to 10 to calculate the factorial: ");
-            if (sc.hasNextInt()) {
-                int input = sc.nextInt();
-                if (input < 1 || input > 10) {
-                    System.out.println("Please provide a number within the required range.");
-                } else {
-                    int total = 0;
-                    for (int i = 0; i <= input; i++) {
-                        total *= i;
+            while (true) {
+                System.out.println("Enter a number from 1 to 15 to calculate the factorial: ");
+                if (sc.hasNextInt()) {
+                    int input = sc.nextInt();
+                    if (input < 1 || input > 15) {
+                        System.out.println("Please provide a number within the required range.");
+                    } else {
+                        int total = 1;
+                        for (int i = 1; i <= input; i++) {
+                            total *= i;
+                        }
+                        System.out.println("\n" + total);
+                        break;
                     }
-                    System.out.println(total);
+                } else {
+                    System.out.println("Please provide a number input");
+                    sc.next();
+                    break;
                 }
-            } else {
-                System.out.println("Please provide a number input");
-                continue;
             }
 
-            boolean exitProgram = false;
             while (!exitProgram) {
                 System.out.println("Would you like to continue calculating factorials?(y/n) ");
                 String moreFacs = sc.next();
@@ -123,6 +129,50 @@ public class MethodsExercises {
             }
         }
 
+    }
+    // -------------------------------
+
+    public static void rollDice() {
+        Scanner sc = new Scanner(System.in);
+        boolean keepGoing = true;
+        boolean exitProgram = false;
+        System.out.println("\nWelcome... to back alley dice!  Start rollin..\n");
+
+        while (keepGoing) {
+            while (true) {
+                System.out.println("\nPick how many sides ya want: ");
+                if (sc.hasNextInt()) {
+                    int input = sc.nextInt();
+                    System.out.println("\nNow roll em...");
+                    sc.nextLine();
+                    sc.nextLine();
+                    Random roll = new Random();
+                    int roll1 = roll.nextInt((input + 1) - 1) + 1;
+                    int roll2 = roll.nextInt((input + 1) - 1) + 1;
+                    System.out.printf("...You got %s, and %s ...\n\n", roll1, roll2);
+                    break;
+                } else {
+                    System.out.println("I don't know what that was...");
+                    sc.next();
+                }
+            }
+
+            while (!exitProgram) {
+                System.out.println("Still rollin?...  (y/n) ");
+                String moreDice = sc.next();
+                if (moreDice.equalsIgnoreCase("y")) {
+                    break;
+                } else if (moreDice.equalsIgnoreCase("n")) {
+                    exitProgram = true;
+                } else {
+                    System.out.println("\nuhh??\n");
+                }
+            }
+            if (exitProgram) {
+                System.out.println("\nYou'll be back...");
+                keepGoing = false;
+            }
+        }
     }
 
 }

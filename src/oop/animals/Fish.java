@@ -1,5 +1,7 @@
 package oop.animals;
 
+import java.util.Locale;
+
 public class Fish extends MarineAnimal {
 
     private boolean hasScales;
@@ -22,4 +24,9 @@ public class Fish extends MarineAnimal {
     public void setHasScales(boolean hasScales) {
         this.hasScales = hasScales;
     }
+
+    public String getName() {
+        return super.getName().toUpperCase();
+    }
+
 }

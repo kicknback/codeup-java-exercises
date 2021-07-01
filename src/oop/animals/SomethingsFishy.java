@@ -3,9 +3,11 @@ package oop.animals;
 public class SomethingsFishy {
     public static void main(String[] args) {
 
-        MarineAnimal marineAnimal = new AquaMammal("Blue whale");
+        var marineAnimal = new AquaMammal("Blue whale");
+        marineAnimal.setMaxTimeSubmerged(30);
+        System.out.println(marineAnimal.getMaxTimeSubmerged());
 
-        System.out.println(marineAnimal.getName());
+
 
     }
 }

@@ -12,7 +12,7 @@ public class Input {
 //        return scanner.hasNext() ? scanner.next() : "That is not a proper string.";
     }
     public boolean yesNo() {
-        System.out.println("Enter a form of yes to be true... ");
+        System.out.println("Would you like to continue? ");
         String input = scanner.next();
         return input.matches("(?i)y|yes|yea|yeah|ya|yep");
     }
@@ -60,7 +60,7 @@ public class Input {
         return 0;
     }
     public double getDouble() {
-        System.out.println("Enter a decimal number: ");
+        System.out.println("Enter a number: ");
         if (scanner.hasNextDouble()) {
             return scanner.nextDouble();
         } else {

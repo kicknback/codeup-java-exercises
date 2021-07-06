@@ -6,5 +6,9 @@ public class CompanyTester {
         Manager bob = new Manager();
         System.out.println(bob.doWork());
 
+        Manager jimmy = new Manager();
+        jimmy.name = "James Jimmy";
+        System.out.println(jimmy.name);
+
     }
 }

@@ -16,11 +16,11 @@ public class ShapesTest {
 
         // Why do we declare a variable of the type Shape named myShape?
         // Shape myShape;
-        Rectangle myShape;
+        Quadrilateral myShape;
 
         myShape = new Rectangle(47, 20);
-//        myShape = new Square(53);
-        Square mySquare = new Square(78);
+        myShape = new Square(53);
+//        Square mySquare = new Square(78);
 
 
         System.out.println(myShape.getPerimeter());

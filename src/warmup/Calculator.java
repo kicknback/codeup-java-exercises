@@ -7,8 +7,8 @@ public class Calculator {
 
     public static void calc(Scanner scanner) {
 
-        int firstNum;
-        int secondNum;
+        int firstNum = 0;
+        int secondNum = 0;
 
         System.out.println("\nEnter first whole number: ");
         if (scanner.hasNextInt()) {

@@ -1,5 +1,6 @@
 package grades;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Student {
@@ -33,10 +34,11 @@ public class Student {
         grades.add(grade);
     }
     public double getGradeAverage() {
+        DecimalFormat df = new DecimalFormat("#.##");
         double total = 0;
         for (Integer grade : grades) {
             total += grade;
         }
-        return total / grades.size();
+        return Double.parseDouble(df.format(total / grades.size()));
     }
 }

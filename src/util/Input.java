@@ -3,13 +3,11 @@ package util;
 import java.util.Scanner;
 
 public class Input {
-//    private String scanner;
     private final Scanner scanner = new Scanner(System.in);
 
     public String getString() {
         System.out.println("Enter a string: ");
         return scanner.next();
-//        return scanner.hasNext() ? scanner.next() : "That is not a proper string.";
     }
     public boolean yesNo() {
         System.out.println("Would you like to continue? ");
@@ -18,28 +16,27 @@ public class Input {
     }
     // why can't I have-- public void getInt(min, max) AND public int getInt()??
     public int getInt(int min, int max) {
-        System.out.printf("Enter a value between the range of %s and %s", min, max);
+        System.out.printf("Enter a value between the range of %s and %s\n", min, max);
         while (true) {
             if (scanner.hasNextInt()) {
                 int intValue = scanner.nextInt();
                 if (intValue < min || intValue > max) {
-                    System.out.println("That value is not within specs..");
+                    System.out.printf("That number isn't between %s and %s..\n", min, max);
                 } else {
-                    System.out.println("Number entered is acceptable.");
                     return intValue;
                 }
             } else {
-                System.out.println("Please enter a valid number.. ");
+                System.out.println("Please enter a valid number.. \n");
             }
         }
     }
     public int getInt() {
-        System.out.println("Enter an integer: ");
+        System.out.println("Enter choice: ");
         if (scanner.hasNextInt()) {
             return scanner.nextInt();
         } else {
             System.out.println("Please enter a valid number.. ");
-            return 0;
+            getInt();
         }
     }
     public double getDouble(double min, double max) {

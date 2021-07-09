@@ -105,4 +105,17 @@ public class MoviesArray {
                 new Movie("Yankee Doodle Dandy", "musical")
         };
     }
+
+    public static void getMoviesByCategory(Movie[] inputArr, String category) {
+        int counter = 1;
+        for (Movie movie : inputArr) {
+            if (movie.getCategory().equalsIgnoreCase(category)) {
+                System.out.printf("\nMovie #%s: %s\n", counter, movie.getName());
+                counter++;
+            } else if (category.equals("all")) {
+                System.out.printf("\nMovie #%s: %s\n", counter, movie.getName());
+                counter++;
+            }
+        }
+    }
 }

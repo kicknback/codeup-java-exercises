@@ -10,9 +10,18 @@ public class Input {
         return scanner.next();
     }
     public boolean yesNo() {
-        System.out.println("Would you like to continue? ");
+        boolean exit = false;
+        System.out.println("\nWould you like to continue? ");
         String input = scanner.next();
-        return input.matches("(?i)y|yes|yea|yeah|ya|yep");
+        if (input.matches("(?i)y|yes|yea|yeah|ya|yep")) {
+            exit = true;
+        } else if (input.matches("(?i)n|no|nah|na|nope|notta")) {
+            "".isEmpty();
+        } else {
+            System.out.println("Not a valid response\n");
+            yesNo();
+        }
+        return exit;
     }
     // why can't I have-- public void getInt(min, max) AND public int getInt()??
     public int getInt(int min, int max) {
@@ -22,11 +31,13 @@ public class Input {
                 int intValue = scanner.nextInt();
                 if (intValue < min || intValue > max) {
                     System.out.printf("That number isn't between %s and %s..\n", min, max);
+                    scanner.nextLine();
                 } else {
                     return intValue;
                 }
             } else {
                 System.out.println("Please enter a valid number.. \n");
+                scanner.nextLine();
             }
         }
     }
@@ -38,6 +49,7 @@ public class Input {
             System.out.println("Please enter a valid number.. ");
             getInt();
         }
+        return 0;
     }
     public double getDouble(double min, double max) {
         System.out.printf("Enter a value between the range of %s and %s\n", min, max);

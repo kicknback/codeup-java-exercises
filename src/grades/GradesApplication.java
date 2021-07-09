@@ -1,25 +1,34 @@
 package grades;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class GradesApplication {
 
     public static void main(String[] args) {
 
-        ArrayList<Integer> bobsGrades = new ArrayList<Integer>(0);
-        Student bob = new Student("Boberton", bobsGrades);
+        DecimalFormat df = new DecimalFormat("#.##");
 
-        ArrayList<Integer> jimsGrades = new ArrayList<Integer>(0);
-        Student jimmy = new Student("Jimmithy", jimsGrades);
+        Student bob = new Student("Boberton", new ArrayList<>());
 
-        ArrayList<Integer> mondosGrades = new ArrayList<Integer>(0);
-        Student mondo = new Student("Mondo", mondosGrades);
+        Student jimmy = new Student("Jimmithy", new ArrayList<>());
+
+        Student mondo = new Student("Mondo", new ArrayList<>());
 
         bob.addGrade(89);
         bob.addGrade(96);
         bob.addGrade(77);
         System.out.println(bob.getGrades());
-        System.out.println(bob.getGradeAverage());
+        System.out.println(df.format(bob.getGradeAverage()));
+
+        System.out.println();
+
+        mondo.addGrade(73);
+        mondo.addGrade(81);
+        mondo.addGrade(99);
+        System.out.println(mondo.getName());
+        System.out.println(mondo.getGrades());
+        System.out.println(df.format(mondo.getGradeAverage()));
 
     }
 

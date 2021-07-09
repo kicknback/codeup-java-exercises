@@ -6,8 +6,8 @@ public class Input {
     private final Scanner scanner = new Scanner(System.in);
 
     public String getString() {
-        System.out.println("Enter a string: ");
-        return scanner.next();
+        System.out.println("\nEnter a value: ");
+        return scanner.nextLine();
     }
     public boolean yesNo() {
         boolean exit = false;

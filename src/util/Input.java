@@ -3,32 +3,58 @@ package util;
 import java.util.Scanner;
 
 public class Input {
+
     private final Scanner scanner = new Scanner(System.in);
 
-
+    // Can add custom message
     public String getString(String soutValue) {
         System.out.printf("\n%s: ", soutValue);
-        return scanner.nextLine();
+        return scanner.next();
     }
 
     public String getString() {
         System.out.println("\nEnter a value: ");
-        return scanner.nextLine();
+        return scanner.next();
     }
+
     public boolean yesNo() {
         boolean exit = false;
-        System.out.println("\nWould you like to continue? ");
-        String input = scanner.next();
-        if (input.matches("(?i)y|yes|yea|yeah|ya|yep")) {
-            exit = true;
-        } else if (input.matches("(?i)n|no|nah|na|nope|notta")) {
-            "".isEmpty();
-        } else {
-            System.out.println("Not a valid response\n");
-            yesNo();
+        while (true) {
+            System.out.println("\nWould you like to continue? ");
+            String input = scanner.next();
+            if (input.matches("(?i)y|yes|yea|yeah|ya|yep")) {
+                exit = true;
+                break;
+            } else if (input.matches("(?i)n|no|nah|na|nope|notta")) {
+                "".isEmpty();
+                break;
+            } else {
+                System.out.println("\nNot a valid response...\n");
+            }
         }
         return exit;
     }
+
+    // Can add custom question
+    public boolean yesNo(String soutValue) {
+        boolean exit = false;
+        while (true) {
+            System.out.printf("\n%s ", soutValue);
+            String input = "";
+            input = scanner.next();
+            if (input.matches("(?i)y|yes|yea|yeah|ya|yep")) {
+                exit = true;
+                break;
+            } else if (input.matches("(?i)n|no|nah|na|nope|notta")) {
+                "".isEmpty();
+                break;
+            } else {
+                System.out.println("\nNot a valid response...\n");
+            }
+        }
+        return exit;
+    }
+
     // why can't I have-- public void getInt(min, max) AND public int getInt()??
     public int getInt(int min, int max) {
         System.out.printf("Enter a value between the range of %s and %s\n", min, max);
@@ -47,6 +73,7 @@ public class Input {
             }
         }
     }
+
     public int getInt() {
         System.out.println("Enter choice: ");
         if (scanner.hasNextInt()) {
@@ -57,6 +84,7 @@ public class Input {
         }
         return 0;
     }
+
     public double getDouble(double min, double max) {
         System.out.printf("Enter a value between the range of %s and %s\n", min, max);
         while (true) {
@@ -74,6 +102,7 @@ public class Input {
         }
         return 0;
     }
+
     public double getDouble() {
         System.out.println("Enter a number: ");
         if (scanner.hasNextDouble()) {

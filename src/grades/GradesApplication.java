@@ -59,21 +59,35 @@ public class GradesApplication {
 
         while (keepGoing) {
 
-            String choice = commandInput.getString("What student would you like to see more information on?");
+
+            String choice = "";
+            choice = commandInput.getString("What student would you like to see more information on?");
+
 
             switch (choice) {
                 case "BobnBob":
-                    System.out.printf("Name: %s  -- GitHub Username: %s\nCurrent grade average: %s\n", bob.getName(), bob.getGitHubUsrName(), bob.getGradeAverage());
+                    System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n", bob.getName(), bob.getGitHubUsrName(), bob.getGradeAverage());
+                    break;
                 case "Jimmithy":
-                    System.out.printf("Name: %s  -- GitHub Username: %s\nCurrent grade average: %s\n", jimmy.getName(), jimmy.getGitHubUsrName(), jimmy.getGradeAverage());
+                    System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n", jimmy.getName(), jimmy.getGitHubUsrName(), jimmy.getGradeAverage());
+                    break;
                 case "DrinkMondo":
-                    System.out.printf("Name: %s  -- GitHub Username: %s\nCurrent grade average: %s\n", mondo.getName(), mondo.getGitHubUsrName(), mondo.getGradeAverage());
+                    System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n", mondo.getName(), mondo.getGitHubUsrName(), mondo.getGradeAverage());
+                    break;
                 case "ronronron":
-                    System.out.printf("Name: %s  -- GitHub Username: %s\nCurrent grade average: %s\n", aaron.getName(), aaron.getGitHubUsrName(), aaron.getGradeAverage());
+                    System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n", aaron.getName(), aaron.getGitHubUsrName(), aaron.getGradeAverage());
+                    break;
                 default:
-                    System.out.printf("Sorry, no student found with the GitHub username of '%s'.", choice);
+                    System.out.printf("\nSorry, no student found with the GitHub username of '%s'.\n", choice);
+                    break;
             }
 
+            boolean anotherStudent = commandInput.yesNo("Would you like to see another student?");
+
+            if (!anotherStudent) {
+                System.out.println("\nGoodbye, and have a wonderful day!");
+                keepGoing = false;
+            }
 
         }
     }

@@ -62,7 +62,7 @@ public class Input {
             if (scanner.hasNextInt()) {
                 int intValue = scanner.nextInt();
                 if (intValue < min || intValue > max) {
-                    System.out.printf("That number isn't between %s and %s..\n", min, max);
+                    System.out.printf("\nThat number isn't between %s and %s..\n", min, max);
                     scanner.nextLine();
                 } else {
                     return intValue;

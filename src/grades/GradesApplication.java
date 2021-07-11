@@ -58,35 +58,82 @@ public class GradesApplication {
         Input commandInput = new Input();
 
         while (keepGoing) {
+            System.out.println("\nWhat would you like to do?\n\n" +
+                    "\t0 - Exit\n" +
+                    "\t1 - View individual student info\n" +
+                    "\t2 - View ALL students' grades\n" +
+                    "\t3 - View overall class average\n" +
+                    "\t4 - Print csv report of all students\n");
 
-
-            String choice = "";
-            choice = commandInput.getString("What student would you like to see more information on?");
-
-
-            switch (choice) {
-                case "BobnBob":
-                    System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n", bob.getName(), bob.getGitHubUsrName(), bob.getGradeAverage());
+            switch (commandInput.getInt(0, 4)) {
+                case 0:
+                    System.out.println("\nGoodbye, and have a wonderful day!\nExiting program...");
+                    keepGoing = false;
                     break;
-                case "Jimmithy":
-                    System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n", jimmy.getName(), jimmy.getGitHubUsrName(), jimmy.getGradeAverage());
+                case 1:
+                    boolean moreStudents = true;
+                    while (moreStudents) {
+                        String choice = "";
+                        choice = commandInput.getString("What student would you like to see more information on?");
+
+
+                        switch (choice) {
+                            case "BobnBob":
+                                System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
+                                        "List of grades: %s\n", bob.getName(), bob.getGitHubUsrName(), bob.getGradeAverage(), bob.getGrades());
+                                break;
+                            case "Jimmithy":
+                                System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
+                                        "List of grades: %s\n", jimmy.getName(), jimmy.getGitHubUsrName(), jimmy.getGradeAverage(), jimmy.getGrades());
+                                break;
+                            case "DrinkMondo":
+                                System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
+                                        "List of grades: %s\n", mondo.getName(), mondo.getGitHubUsrName(), mondo.getGradeAverage(), mondo.getGrades());
+                                break;
+                            case "ronronron":
+                                System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
+                                        "List of grades: %s\n", aaron.getName(), aaron.getGitHubUsrName(), aaron.getGradeAverage(), aaron.getGrades());
+                                break;
+                            default:
+                                System.out.printf("\nSorry, no student found with the GitHub username of '%s'.\n", choice);
+                                break;
+                        }
+                        boolean anotherStudent = commandInput.yesNo("Would you like to see another student?");
+                        if (!anotherStudent) {
+                            moreStudents = false;
+                        }
+                    }
                     break;
-                case "DrinkMondo":
-                    System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n", mondo.getName(), mondo.getGitHubUsrName(), mondo.getGradeAverage());
+                case 2:
+                    System.out.println("Current students and their grades:");
+                    for (Student student : students.values()) {
+                        System.out.printf("\nStudent: %s\nGrades: %s\n", student.getName(), student.getGrades());
+                    }
                     break;
-                case "ronronron":
-                    System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n", aaron.getName(), aaron.getGitHubUsrName(), aaron.getGradeAverage());
+                case 3:
+                    double total = 0;
+                    for (Student student : students.values()) {
+                        total += student.getGradeAverage();
+                    }
+                    System.out.printf("\nAverage grade of all students is: %.2f\n", total / students.size());
+                    break;
+                case 4:
+                    System.out.println("\nname,github_username,average");
+                    for (Student student : students.values()) {
+                        System.out.printf("%s,%s,%s\n", student.getName(), student.getGitHubUsrName(), student.getGradeAverage());
+                    }
                     break;
                 default:
-                    System.out.printf("\nSorry, no student found with the GitHub username of '%s'.\n", choice);
                     break;
             }
-
-            boolean anotherStudent = commandInput.yesNo("Would you like to see another student?");
-
-            if (!anotherStudent) {
-                System.out.println("\nGoodbye, and have a wonderful day!");
-                keepGoing = false;
+            if (!keepGoing) {
+                break;
+            } else {
+                boolean moreInfo = commandInput.yesNo("Would you like to see more scholastic information?");
+                if (!moreInfo) {
+                    System.out.println("\nGoodbye, and have a wonderful day!\nExiting program...");
+                    keepGoing = false;
+                }
             }
 
         }

@@ -42,6 +42,7 @@ public class Student {
     public void addGrade(int grade) {
         grades.add(grade);
     }
+
     public double getGradeAverage() {
         DecimalFormat df = new DecimalFormat("#.##");
         double total = 0;
@@ -50,4 +51,7 @@ public class Student {
         }
         return Double.parseDouble(df.format(total / grades.size()));
     }
+
+//    public void getAllAgrades
+
 }

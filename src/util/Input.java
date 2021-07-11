@@ -5,6 +5,12 @@ import java.util.Scanner;
 public class Input {
     private final Scanner scanner = new Scanner(System.in);
 
+
+    public String getString(String soutValue) {
+        System.out.printf("\n%s: ", soutValue);
+        return scanner.nextLine();
+    }
+
     public String getString() {
         System.out.println("\nEnter a value: ");
         return scanner.nextLine();

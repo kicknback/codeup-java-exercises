@@ -50,6 +50,34 @@ public class GradesApplication {
 //        System.out.println(jimmy.getName());
 //        System.out.println(students.get(mondo.getName()).getGradeAverage());
 
+
+        bob.recordAttendance("2021-07-12", "P");
+        bob.recordAttendance("2021-07-13", "a");
+        bob.recordAttendance("2021-07-14", "P");
+        bob.recordAttendance("2021-07-15", "P");
+        bob.recordAttendance("2021-07-16", "P");
+
+        jimmy.recordAttendance("2021-07-12", "P");
+        jimmy.recordAttendance("2021-07-13", "P");
+        jimmy.recordAttendance("2021-07-14", "P");
+        jimmy.recordAttendance("2021-07-15", "P");
+        jimmy.recordAttendance("2021-07-16", "P");
+
+        mondo.recordAttendance("2021-07-12", "A");
+        mondo.recordAttendance("2021-07-13", "P");
+        mondo.recordAttendance("2021-07-14", "p");
+        mondo.recordAttendance("2021-07-15", "P");
+        mondo.recordAttendance("2021-07-16", "a");
+
+        aaron.recordAttendance("2021-07-12", "P");
+        aaron.recordAttendance("2021-07-13", "P");
+        aaron.recordAttendance("2021-07-14", "a");
+        aaron.recordAttendance("2021-07-15", "a");
+        aaron.recordAttendance("2021-07-16", "A");
+
+
+        // -=-=-=-=-=-=-=-=-=-=-=-=-=-= start of program -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
         System.out.println("\nWelcome!\n");
         System.out.println("Here are the GitHub usernames of our students:\n");
         System.out.printf("|%s| |%s| |%s| |%s|\n", bob.getGitHubUsrName(), jimmy.getGitHubUsrName(), mondo.getGitHubUsrName(), aaron.getGitHubUsrName());
@@ -80,19 +108,23 @@ public class GradesApplication {
                         switch (choice) {
                             case "BobnBob":
                                 System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
-                                        "List of grades: %s\n", bob.getName(), bob.getGitHubUsrName(), bob.getGradeAverage(), bob.getGrades());
+                                        "List of grades: %s\nAttendance percentage: %s%%\nDates found to be absent: %s\n",
+                                        bob.getName(), bob.getGitHubUsrName(), bob.getGradeAverage(), bob.getGrades(), bob.attendancePercentage(), bob.datesAbsent());
                                 break;
                             case "Jimmithy":
                                 System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
-                                        "List of grades: %s\n", jimmy.getName(), jimmy.getGitHubUsrName(), jimmy.getGradeAverage(), jimmy.getGrades());
+                                        "List of grades: %s\nAttendance percentage: %s%%\nDates found to be absent: %s\n",
+                                        jimmy.getName(), jimmy.getGitHubUsrName(), jimmy.getGradeAverage(), jimmy.getGrades(), jimmy.attendancePercentage(), jimmy.datesAbsent());
                                 break;
                             case "DrinkMondo":
                                 System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
-                                        "List of grades: %s\n", mondo.getName(), mondo.getGitHubUsrName(), mondo.getGradeAverage(), mondo.getGrades());
+                                        "List of grades: %s\nAttendance percentage: %s%%\nDates found to be absent: %s\n",
+                                        mondo.getName(), mondo.getGitHubUsrName(), mondo.getGradeAverage(), mondo.getGrades(), mondo.attendancePercentage(), mondo.datesAbsent());
                                 break;
                             case "ronronron":
                                 System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
-                                        "List of grades: %s\n", aaron.getName(), aaron.getGitHubUsrName(), aaron.getGradeAverage(), aaron.getGrades());
+                                        "List of grades: %s\nAttendance percentage: %s%%\nDates found to be absent: %s\n",
+                                        aaron.getName(), aaron.getGitHubUsrName(), aaron.getGradeAverage(), aaron.getGrades(), aaron.attendancePercentage(), aaron.datesAbsent());
                                 break;
                             default:
                                 System.out.printf("\nSorry, no student found with the GitHub username of '%s'.\n", choice);

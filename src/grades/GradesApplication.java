@@ -104,7 +104,6 @@ public class GradesApplication {
                         String choice = "";
                         choice = commandInput.getString("What student would you like to see more information on?");
 
-
                         switch (choice) {
                             case "BobnBob":
                                 System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
@@ -167,7 +166,6 @@ public class GradesApplication {
                     keepGoing = false;
                 }
             }
-
         }
     }
 

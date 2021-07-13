@@ -42,10 +42,10 @@ public class GradesApplication {
 //        System.out.println(df.format(mondo.getGradeAverage()));
 
         HashMap<String, Student> students = new HashMap<>();
-        students.put(bob.getName(), bob);
-        students.put(jimmy.getName(), jimmy);
-        students.put(mondo.getName(), mondo);
-        students.put(aaron.getName(), aaron);
+        students.put(bob.getGitHubUsrName(), bob);
+        students.put(jimmy.getGitHubUsrName(), jimmy);
+        students.put(mondo.getGitHubUsrName(), mondo);
+        students.put(aaron.getGitHubUsrName(), aaron);
 
 //        System.out.println(jimmy.getName());
 //        System.out.println(students.get(mondo.getName()).getGradeAverage());
@@ -81,7 +81,11 @@ public class GradesApplication {
         System.out.println("\nWelcome!\n");
         System.out.println("Here are the GitHub usernames of our students:\n");
         System.out.printf("|%s| |%s| |%s| |%s|\n", bob.getGitHubUsrName(), jimmy.getGitHubUsrName(), mondo.getGitHubUsrName(), aaron.getGitHubUsrName());
-
+        init(students);
+        
+    }
+    
+    public static void init(HashMap<String, Student> students) {
         boolean keepGoing = true;
         Input commandInput = new Input();
 
@@ -103,32 +107,12 @@ public class GradesApplication {
                     while (moreStudents) {
                         String choice = "";
                         choice = commandInput.getString("What student would you like to see more information on?");
-
-                        switch (choice) {
-                            case "BobnBob":
-                                System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
-                                        "List of grades: %s\nAttendance percentage: %s%%\nDates found to be absent: %s\n",
-                                        bob.getName(), bob.getGitHubUsrName(), bob.getGradeAverage(), bob.getGrades(), bob.attendancePercentage(), bob.datesAbsent());
-                                break;
-                            case "Jimmithy":
-                                System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
-                                        "List of grades: %s\nAttendance percentage: %s%%\nDates found to be absent: %s\n",
-                                        jimmy.getName(), jimmy.getGitHubUsrName(), jimmy.getGradeAverage(), jimmy.getGrades(), jimmy.attendancePercentage(), jimmy.datesAbsent());
-                                break;
-                            case "DrinkMondo":
-                                System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
-                                        "List of grades: %s\nAttendance percentage: %s%%\nDates found to be absent: %s\n",
-                                        mondo.getName(), mondo.getGitHubUsrName(), mondo.getGradeAverage(), mondo.getGrades(), mondo.attendancePercentage(), mondo.datesAbsent());
-                                break;
-                            case "ronronron":
-                                System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
-                                        "List of grades: %s\nAttendance percentage: %s%%\nDates found to be absent: %s\n",
-                                        aaron.getName(), aaron.getGitHubUsrName(), aaron.getGradeAverage(), aaron.getGrades(), aaron.attendancePercentage(), aaron.datesAbsent());
-                                break;
-                            default:
-                                System.out.printf("\nSorry, no student found with the GitHub username of '%s'.\n", choice);
-                                break;
+                        if (students.containsKey(choice)) {
+                            printStudentInfo(students.get(choice));
+                        } else {
+                            System.out.printf("\nSorry, no student found with the GitHub username of '%s'.\n", choice);
                         }
+
                         boolean anotherStudent = commandInput.yesNo("Would you like to see another student?");
                         if (!anotherStudent) {
                             moreStudents = false;
@@ -167,6 +151,11 @@ public class GradesApplication {
                 }
             }
         }
+        
     }
-
+    public static void printStudentInfo(Student student) {
+        System.out.printf("\nName: %s  -- GitHub Username: %s\nCurrent grade average: %s\n" +
+                        "List of grades: %s\nAttendance percentage: %s%%\nDates found to be absent: %s\n",
+                student.getName(), student.getGitHubUsrName(), student.getGradeAverage(), student.getGrades(), student.attendancePercentage(), student.datesAbsent());
+    }
 }

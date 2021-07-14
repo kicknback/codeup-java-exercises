@@ -15,7 +15,7 @@ public class ExceptionLecture {
         System.out.println("And how much mulah do you have?: ");
         String money = sc.next();
 
-        eligibility(age, money);
+        System.out.println(eligibility(age, money));
 
     }
 
@@ -24,9 +24,8 @@ public class ExceptionLecture {
         try {
             if (Integer.parseInt(age) < 17 || Integer.parseInt(money) < 200) {
                 returnString = "Lo siento, no Banco di Laura para tu";
-            } else {
-                returnString = "Bienvenidos!"
-            }
+            } else returnString = "Bienvenidos!";
+
         } catch (Exception e) {
             System.out.println(e);
         }

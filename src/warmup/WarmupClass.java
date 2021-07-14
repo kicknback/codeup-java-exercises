@@ -1,6 +1,7 @@
 package warmup;
 import util.Input;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class WarmupClass {
@@ -10,7 +11,9 @@ public class WarmupClass {
 
 //        System.out.println(capitalLetters(blah));
 
-        System.out.println(Arrays.toString(favoriteVacaySpots()));
+//        System.out.println(Arrays.toString(favoriteVacaySpots()));
+
+        System.out.println(Arrays.toString(splitter("blah blah and blah")));
 
     }
 
@@ -48,6 +51,13 @@ public class WarmupClass {
             }
         }
         return vacaySpots.toString().split(",");
+    }
+
+//    warmup: write a method that accepts a string and returns a String array that splits at the spaces
+//    - you can write this within any main method
+
+    public static String[] splitter(String str) {
+        return str.split(" ");
     }
 
 

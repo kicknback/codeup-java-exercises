@@ -76,10 +76,10 @@ public class WarmupClass {
     public static void randStr(String str) {
         Random rand = new Random();
         int randNum = rand.nextInt(50 + 1);
-        String[] strArr = str.split("");
+//        String[] strArr = str.split("");
         System.out.println(randNum);
         try {
-            System.out.println(strArr[randNum]);
+            System.out.printf("'%s'", str.charAt(randNum));
         } catch (Exception e) {
             System.out.println(e);
         }

@@ -33,6 +33,4 @@ public class ExceptionLecture {
     }
 
 
-    // adding padding to test zsh function
-
 }

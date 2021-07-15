@@ -3,6 +3,7 @@ import util.Input;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class WarmupClass {
     public static void main(String[] args) {
@@ -13,7 +14,10 @@ public class WarmupClass {
 
 //        System.out.println(Arrays.toString(favoriteVacaySpots()));
 
-        System.out.println(Arrays.toString(splitter("blah blah and blah")));
+//        System.out.println(Arrays.toString(splitter("blah blah and blah")));
+
+        String str = "Oberon is the best cohort ever!";
+        randStr(str);
 
     }
 
@@ -60,5 +64,26 @@ public class WarmupClass {
         return str.split(" ");
     }
 
+
+    // WARM UP
+    // TODO Given this string: `String str = "Oberon is the
+    //  best cohort ever!"`, print out the character from that
+    //  string using a random number generator, that generates
+    //  a number between 0 and 50. Using a try/catch block, handle
+    //  any errors (Exceptions) that may occur by printing out the
+    //  message.
+
+    public static void randStr(String str) {
+        Random rand = new Random();
+        int randNum = rand.nextInt(50 + 1);
+        String[] strArr = str.split("");
+        System.out.println(randNum);
+        try {
+            System.out.println(strArr[randNum]);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
 
 }

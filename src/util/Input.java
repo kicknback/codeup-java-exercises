@@ -9,12 +9,12 @@ public class Input {
     // Can add custom message
     public String getString(String soutValue) {
         System.out.printf("\n%s: ", soutValue);
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public String getString() {
         System.out.println("\nEnter a value: ");
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public boolean yesNo() {
@@ -74,15 +74,28 @@ public class Input {
         }
     }
 
+//    public int getInt() {
+//        System.out.println("Enter choice: ");
+//        if (scanner.hasNextInt()) {
+//            return scanner.nextInt();
+//        } else {
+//            System.out.println("Please enter a valid number.. ");
+//            getInt();
+//        }
+//        return 0;
+//    }
+
+    // modified with exceptions
     public int getInt() {
-        System.out.println("Enter choice: ");
-        if (scanner.hasNextInt()) {
-            return scanner.nextInt();
-        } else {
-            System.out.println("Please enter a valid number.. ");
-            getInt();
+        while (true) {
+            int num = 0;
+            try {
+                num = Integer.valueOf(getString());
+                return num;
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number..");
+            }
         }
-        return 0;
     }
 
     public double getDouble(double min, double max) {
@@ -103,13 +116,26 @@ public class Input {
         return 0;
     }
 
+//    public double getDouble() {
+//        System.out.println("Enter a number: ");
+//        if (scanner.hasNextDouble()) {
+//            return scanner.nextDouble();
+//        } else {
+//            System.out.println("Please enter a valid number.. ");
+//            return 0;
+//        }
+//    }
+
+    // modified with exceptions
     public double getDouble() {
-        System.out.println("Enter a number: ");
-        if (scanner.hasNextDouble()) {
-            return scanner.nextDouble();
-        } else {
-            System.out.println("Please enter a valid number.. ");
-            return 0;
+        while (true) {
+            double num = 0;
+            try {
+                num = Double.valueOf(getString());
+                return num;
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number..");
+            }
         }
     }
 

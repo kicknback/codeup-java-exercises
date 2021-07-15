@@ -1,3 +1,4 @@
+import util.Input;
 import java.util.Scanner;
 
 public class ExceptionLecture {
@@ -10,12 +11,16 @@ public class ExceptionLecture {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("What is your age?: ");
-        String age = sc.next();
-        System.out.println("And how much mulah do you have?: ");
-        String money = sc.next();
+        Input userInput = new Input();
 
-        System.out.println(eligibility(age, money));
+
+//        System.out.println("What is your age?: ");
+//        String age = sc.next();
+//        System.out.println("And how much mulah do you have?: ");
+//        String money = sc.next();
+//        System.out.println(eligibility(age, money));
+
+        System.out.println(userInput.getDouble());
 
     }
 
@@ -31,6 +36,9 @@ public class ExceptionLecture {
         }
         return returnString;
     }
+
+
+
 
 
 }

@@ -3,6 +3,8 @@ package fileIO;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileIO {
 
@@ -28,8 +30,29 @@ public class FileIO {
 
         System.out.println(path);
 
+        List<String> contentToWrite = new ArrayList<>();
+        contentToWrite.add("This is a new line!");
+        contentToWrite.add("ANOTHER LINE\nblah blah blah");
+
+        // Print what's in file BEFORE
         IOUtil.tryPrintContents(path);
 
+        // Try to write to the file
+        IOUtil.tryWriteToFile(getContent(), path);
+
+        // And print after write operation
+        IOUtil.tryPrintContents(path);
+
+
+
+    }
+
+    public static List<String> getContent() {
+        List<String> contentToWrite = new ArrayList<>();
+        contentToWrite.add("This is a new line!");
+        contentToWrite.add("ANOTHER LINE\nblah blah blah");
+
+        return contentToWrite;
     }
 
 

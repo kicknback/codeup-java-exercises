@@ -4,6 +4,8 @@
 # IntelliJ
 .idea/*
 *.iml
+*DataFiles.java
+
 
 # Compiled output
 *.class
